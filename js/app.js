@@ -52,20 +52,22 @@ Player.prototype.update = function() {
 };
 
 //add handleInput method
-Player.prototype.handleInput(Direction) {
-    if (Dirction === 'left') {
-        var playerX = this.x - movement；
+Player.prototype.handleInput = function(Direction) {
+    if (Direction === 'left') {
+        var playerX = this.x - movement;
     }
-    else if (Direction === "up") {
-        var playerY = this.y + movement；
+    else if (Direction === "up")  {
+        var playerY = this.y + movement;
     }
     else if (Direction === "right") {
         var playerX = this.x + movement;
     }
     else if (Direction === "down") {
-        var playerY = this.y - movement；
+        var playerY = this.y - movement;
     }
 };
+
+var movement =100;
 
 // Now instantiate your objects.
 
