@@ -20,7 +20,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x + dt*this.speed;
+    this.x += dt*this.speed;
 
     if (this.x > 510) {
         this.x = -50;
@@ -33,14 +33,11 @@ Enemy.prototype.render = function() {
 };
 
 // Now write your own player class
-var Player = function(playerX,playerY) {
+var Player = function(x,y) {
     //loading the image
-    this.sprite ='images/char-horn-girl.png'
-    //setting the player initial location
-    this.initialX = 200;
-    this.initialY = 450;
-    this.x = playerX;
-    this.y = playerY;
+    this.sprite ='images/char-boy.png';
+    this.x = x;
+    this.y = y;
 }
 
 // This class requires an update(), render() and
@@ -52,47 +49,51 @@ Player.prototype.render = function() {
 };
 
 //add update method for the Palyer
-Player.prototype.update = function() {
-    if (this.x > 505) {
+Player.prototype.update = function(dt) {
+    if (this.x > 400) {
         this.x = this.x - 100;
     }
     if (this.x < 0) {
         this.x = this.x + 100;
     }
-    if (this.y < 100) {
-        this.x = 200;
-        this.y = 450;
+    if (this.y < 50) {
+        reset();
     }
-    if (this.y > 450) {
-        this.y = this.y - 100;
+    if (this.y > 400) {
+        this.y = 400;
     }
 };
+
+// add reset function
+function reset() {
+    player.x = 200;
+    player.y = 400;
+}
 
 //add handleInput method
 Player.prototype.handleInput = function(Direction) {
     if (Direction === 'left') {
-        var playerX = this.x - movement;
+        this.x = this.x - 100;
     }
     else if (Direction === "up")  {
-        var playerY = this.y + movement;
+        this.y = this.y - 85;
     }
     else if (Direction === "right") {
-        var playerX = this.x + movement;
+        this.x = this.x + 100;
     }
     else if (Direction === "down") {
-        var playerY = this.y - movement;
+        this.y = this.y + 85;
     }
 };
 
-var movement =100;
 
 // Now instantiate your objects.
 
 
 // Place all enemy objects in an array called allEnemies
-var allEnemies=[new Enemy(0,0,80), new Enemy(0,100,50),new Enemy(0,300,100),new Enemy(0,400,70)];
+var allEnemies=[new Enemy(0,60,80), new Enemy(0,145,50),new Enemy(0,230,100)];
 // Place the player object in a variable called player
-var player = new Player();
+var player = new Player(200,400);
 
 
 // This listens for key presses and sends the keys to your
