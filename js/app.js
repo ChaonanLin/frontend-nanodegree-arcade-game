@@ -33,7 +33,7 @@ Enemy.prototype.render = function() {
 };
 
 // Now write your own player class
-var Player = function() {
+var Player = function(playerX,playerY) {
     //loading the image
     this.sprite ='images/char-horn-girl.png'
     //setting the player initial location
