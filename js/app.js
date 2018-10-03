@@ -26,6 +26,10 @@ Enemy.prototype.update = function(dt) {
         this.x = -50;
         this.speed = Math.floor(Math.random()*200+50);
     }
+    //add collision with the Player (you need to implement)
+    if (Math.abs(this.x - player.x)<100 && Math.abs(this.y - player.y)<85) {
+        reset();
+    }
 };
 
 // Draw the enemy on the screen, required method for game
