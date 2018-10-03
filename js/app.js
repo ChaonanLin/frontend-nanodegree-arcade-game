@@ -22,8 +22,10 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += dt*this.speed;
 
+    //reset enemies position when reach the board
     if (this.x > 510) {
         this.x = -50;
+        //reset enemies' speed
         this.speed = Math.floor(Math.random()*200+50);
     }
     //add collision with the Player (you need to implement)
