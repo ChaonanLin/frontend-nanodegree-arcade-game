@@ -21,6 +21,10 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x = this.x + dt*this.speed;
+
+    if (this.x > 510) {
+        this.x = -50;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -49,6 +53,19 @@ Player.prototype.render = function() {
 
 //add update method for the Palyer
 Player.prototype.update = function() {
+    if (this.x > 505) {
+        this.x = this.x - 100;
+    }
+    if (this.x < 0) {
+        this.x = this.x + 100;
+    }
+    if (this.y < 100) {
+        this.x = 200;
+        this.y = 450;
+    }
+    if (this.y > 450) {
+        this.y = this.y - 100;
+    }
 };
 
 //add handleInput method
