@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
@@ -31,7 +31,7 @@ Enemy.prototype.update = function(dt) {
         this.speed = Math.floor(Math.random()*200+50);
     }
     //add collision with the Player (you need to implement)
-    if (Math.abs(this.x - player.x)<100 && Math.abs(this.y - player.y)<85) {
+    if (Math.abs(this.x - player.x)<60 && Math.abs(this.y - player.y)<85) {
         reset();
     }
 };
